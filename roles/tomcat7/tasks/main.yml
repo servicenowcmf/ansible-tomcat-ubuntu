@@ -1,6 +1,6 @@
 ---
 - name: update repository
-  - apt_repository
+  - apt_repository:
     repo: ppa:openjdk-r/ppa
     state: present
     

@@ -1,9 +1,9 @@
 ---
-- name: update repository
-  - apt_repository:
-    repo: ppa:openjdk-r/ppa
-    state: present
-    
+
+- apt_repository:
+  repo: ppa:openjdk-r/ppa
+  state: present
+  
 - name: updates server
   apt: update_cache=yes
   

@@ -1,4 +1,15 @@
 ---
+- name: update repository
+  - apt_repository
+    repo: ppa:openjdk-r/ppa
+    state: present
+    
+- name: updates server
+  apt: update_cache=yes
+  
+- name: upgrade server
+  apt: upgrade=dist
+
 - name: Install Java 1.8
   apt: name=openjdk-8-jdk
 

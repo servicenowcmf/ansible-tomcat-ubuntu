@@ -12,8 +12,8 @@ The playbook can not run the Tomcat server on Port 80.
 
 Please use the following Extra Variables: 
 
-version: 7
-http_port: 8080
+version: 7 /n
+http_port: 8080 \n
 https_port: 8043
 admin_username: username
 admin_password: password

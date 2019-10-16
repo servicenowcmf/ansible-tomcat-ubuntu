@@ -1,39 +1,19 @@
-## Standalone Tomcat Deployment to ubuntu Os
+## Standalone Tomcat Deployment to Ubuntu 14 - Trusty
 
-- Requires Ansible 1.2 or newer
-- Expects Ubuntu hosts
-- Install Openjdk 1.8
-- Install Tomcat7 or 8
+- Requires Ansible 3.0 or newer
+- Expects Ubuntu 14 LTS Hosts
+- Installs Openjdk 1.8
+- Installs Tomcat 7 (with a future update it will provide the capability to install Tomcat 8.0)
 
-These playbooks deploy a very basic implementation of Tomcat Application Server,
-version 7 or 8. To use them, first edit the "hosts" inventory file to contain the
-hostnames of the machines on which you want Tomcat deployed, and edit the
-group_vars/tomcat-servers file to set any Tomcat configuration parameters you need.
+These playbooks deploy a very basic implementation of the Tomcat Application Server, version 7.0. 
+The original playbook was forked from @Inforedaster. 
+The redesigned playbook is designed to run with Ansible Tower with Ubuntu host in the AWS cloud. 
+The playbook can not run the Tomcat server on Port 80.
 
-Then run the playbook, like this:
+Please use the following Extra Variables: 
 
-For Tomcat7 :
-
-	ansible-playbook -i hosts site.yml --extra-vars "version=7"
-
-For Tomcat8 :
-
-	ansible-playbook -i hosts site.yml --extra-vars "version=8"
-	
-When the playbook run completes, you should be able to see the Tomcat
-Application Server running on the ports you chose, on the target machines.
-
-This is a very simple playbook and could serve as a starting point for more
-complex Tomcat-based projects.
-
-### Ideas for Improvement
-
-Here are some ideas for ways that these playbooks could be extended:
-
-- Write a playbook to deploy an actual application into the server.
-- Deploy Tomcat clustered with a load balancer in front.
-
-We would love to see contributions and improvements, so please fork this
-repository on GitHub and send us your changes via pull requests.
-
-@Inforedaster
+version: 7
+http_port: 8080
+https_port: 8043
+admin_username: username
+admin_password: password
